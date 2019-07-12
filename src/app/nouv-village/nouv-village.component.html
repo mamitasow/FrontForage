@@ -1,0 +1,57 @@
+<p></p>
+<div class="container">
+  <div class="alert alert-danger" *ngIf="mode==1">
+    <strong>Insertion échouée</strong>
+  </div>
+  <div class="alert alert-info" *ngIf="mode==0">
+    <strong>Insertion reussie</strong>
+  </div>
+  <div class="card card-primary">
+
+    <div class="card card-body">
+      <form #f="ngForm" (ngSubmit)="onSave(f.value)">
+        <fieldset>
+          <legend>Village</legend>
+        <div class="form-group">
+          <label>Nom Complet</label>
+          <input type="text" name="nomvillage" ngModel="" class="form-control">
+        </div>
+        </fieldset>
+        <fieldset>
+          <legend> Chef De Village</legend>
+          <div class="card card-primary">
+
+            <div class="card card-body">
+              <form #f="ngForm" (ngSubmit)="onSave(f.value)">
+                <div class="form-group">
+                  <label>Nom de famille</label>
+                  <input type="text" name="nomFamille" ngModel="" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label>Adresse</label>
+                  <input type="text" name="adresse" ngModel="" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label>Telephone</label>
+                  <input type="text" name="tel" ngModel="" class="form-control">
+                </div>
+                                <!-- Default checked -->
+                  <div class="custom-control custom-radio">
+                    <label class="custom-control-label" for="defaultChecked2">Est Chef</label>
+                    <input type="radio" class="custom-control-input" id="defaultChecked2" name="estchef" checked>
+
+                  </div>
+                <div class="form-group">
+
+                  <input type="text" name="village_id" ngModel="" class="form-control">
+                </div>
+
+          <tr>
+            <td><button class="btn btn-primary" type="submit">Enregistrer</button></td>
+          </tr>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+
+</div>

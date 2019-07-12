@@ -1,0 +1,38 @@
+<p></p>
+<div class="container">
+  <div class="alert alert-danger" *ngIf="mode==0">
+    <strong>Insertion consulation échouée</strong>
+  </div>
+  <div class="alert alert-info" *ngIf="mode==1">
+    <strong>Insertion consultation reussie</strong>
+  </div>
+  <div class="alert alert-danger" role="alert" *ngIf="ok==1">
+    <strong>Patient existant</strong>
+  </div>
+  <!--<div class="card card-primary">
+
+    <div class="card card-body">-->
+  <form [formGroup]="f" (ngSubmit)="onSave() autocomplete=on">
+    <fieldset>
+      <legend>Village</legend>
+      <div class="form-group">
+        <label>NomVillage</label>
+        <input #nomvillage type="text" list="nomvillage" formControlName="nomvillage" (mouseout)="search(nomvillage)" name="nomvillage" ngModel="" class="form-control" [ngClass]="{ 'is-invalid': submitted && loginForm.controls.nomvillage.errors }">
+        <datalist id="nomvillage">
+          <option *ngFor="let v of Village" value={{v.id}}>{{v.nomvillage}}</option>
+        </datalist>
+        <div *ngIf="submitted && f.controls.nomvillage.errors" class="invalid-feedback">
+          <div *ngIf="f.controls.nomvillage.errors.required"> Creer ce village!</div>
+        </div>
+      </div>
+      <tr>
+        <td><button class="btn btn-primary" type="submit">Enregistrer</button></td>
+      </tr>
+    </fieldset>
+  </form>
+  <!--  </div>
+  </div>-->
+
+</div>
+
+
